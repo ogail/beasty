@@ -1,5 +1,6 @@
 #Beasty specific files
 temp/
+engine/
 
 # Windows image file caches
 Thumbs.db
