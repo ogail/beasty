@@ -1,3 +1,6 @@
+#Beasty specific files
+temp/
+
 # Windows image file caches
 Thumbs.db
 
@@ -32,6 +35,8 @@ Desktop.ini
 *.tmp
 *.vspscc
 .builds
+*.log
+*.tlog
 
 # Visual C++ cache files
 ipch/

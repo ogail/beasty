@@ -1,3 +1,6 @@
 [submodule "docs"]
 	path = docs
 	url = https://github.com/ogail/beasty.wiki.git
+[submodule "samples/asteroider"]
+	path = samples/asteroider
+	url = git@github.com:ogail/asteroider.git
