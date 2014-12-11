@@ -4,3 +4,4 @@
 [submodule "samples/asteroider"]
 	path = samples/asteroider
 	url = git@github.com:ogail/asteroider.git
+	branch = dev
