@@ -60,6 +60,18 @@
     <ClInclude Include="..\src\include\GameManager.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\include\ActorFactory.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\Actor.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\ActorMisc.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\include\ActorComponent.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\beasty\InputEngine.cpp">
@@ -69,6 +81,15 @@
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
     <ClCompile Include="..\src\beasty\GameManager.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\beasty\ActorFactory.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\beasty\Actor.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\beasty\ActorComponent.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>

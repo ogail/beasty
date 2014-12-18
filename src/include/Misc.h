@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DXUT.h"
+#include "DXUT\Core\DXUT.h"
 
 namespace beasty
 {

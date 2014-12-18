@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "GraphicsEngine.h"
 #include "InputEngine.h"
+#include <string>
 
 using namespace beasty;
 
@@ -13,7 +14,7 @@ GameManager::~GameManager()
 {
 }
 
-int GameManager::init(HINSTANCE hInstance,
+int GameManager::Init(HINSTANCE hInstance,
                   HINSTANCE hPrevInstance,
                   LPWSTR lpCmdLine,
                   int nCmdShow)
@@ -27,19 +28,19 @@ int GameManager::init(HINSTANCE hInstance,
     // that is available on the system depending on which D3D callbacks are set below
 
     // Set general DXUT callbacks
-    DXUTSetCallbackFrameMove(GraphicsEngine::onFrameMove);
-    DXUTSetCallbackKeyboard(InputEngine::onKeyboard);
-    DXUTSetCallbackMsgProc(GameManager::msgProc);
-    DXUTSetCallbackDeviceChanging(GraphicsEngine::modifyDeviceSettings);
-    DXUTSetCallbackDeviceRemoved(GraphicsEngine::onDeviceRemoved);
+    DXUTSetCallbackFrameMove(GraphicsEngine::OnFrameMove);
+    DXUTSetCallbackKeyboard(InputEngine::OnKeyboard);
+    DXUTSetCallbackMsgProc(GameManager::MsgProc);
+    DXUTSetCallbackDeviceChanging(GraphicsEngine::ModifyDeviceSettings);
+    DXUTSetCallbackDeviceRemoved(GraphicsEngine::OnDeviceRemoved);
 
     // Set the D3D11 DXUT callbacks. Remove these sets if the app doesn't need to support D3D11
-    DXUTSetCallbackD3D11DeviceAcceptable(GraphicsEngine::isD3D11DeviceAcceptable);
-    DXUTSetCallbackD3D11DeviceCreated(GraphicsEngine::onD3D11CreateDevice);
-    DXUTSetCallbackD3D11SwapChainResized(GraphicsEngine::onD3D11ResizedSwapChain);
-    DXUTSetCallbackD3D11FrameRender(GraphicsEngine::onD3D11FrameRender);
-    DXUTSetCallbackD3D11SwapChainReleasing(GraphicsEngine::onD3D11ReleasingSwapChain);
-    DXUTSetCallbackD3D11DeviceDestroyed(GraphicsEngine::onD3D11DestroyDevice);
+    DXUTSetCallbackD3D11DeviceAcceptable(GraphicsEngine::IsD3D11DeviceAcceptable);
+    DXUTSetCallbackD3D11DeviceCreated(GraphicsEngine::OnD3D11CreateDevice);
+    DXUTSetCallbackD3D11SwapChainResized(GraphicsEngine::OnD3D11ResizedSwapChain);
+    DXUTSetCallbackD3D11FrameRender(GraphicsEngine::OnD3D11FrameRender);
+    DXUTSetCallbackD3D11SwapChainReleasing(GraphicsEngine::OnD3D11ReleasingSwapChain);
+    DXUTSetCallbackD3D11DeviceDestroyed(GraphicsEngine::OnD3D11DestroyDevice);
 
     // Perform any application-level initialization here
     DXUTInit( true, true, nullptr ); // Parse the command line, show msgboxes on error, no extra command line params
@@ -55,12 +56,12 @@ int GameManager::init(HINSTANCE hInstance,
     return DXUTGetExitCode();
 }
 
-void CALLBACK GameManager::update(double fTime, float fElapsedTime, void* pUserContext)
+void CALLBACK GameManager::Update(double fTime, float fElapsedTime, void* pUserContext)
 {
     
 }
 
-LRESULT CALLBACK GameManager::msgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool* pbNoFurtherProcessing, void* pUserContext)
+LRESULT CALLBACK GameManager::MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool* pbNoFurtherProcessing, void* pUserContext)
 {
     return 0;
 }

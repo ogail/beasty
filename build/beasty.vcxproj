@@ -11,7 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\beasty\Actor.cpp" />
+    <ClCompile Include="..\src\beasty\ActorComponent.cpp" />
     <ClCompile Include="..\src\beasty\GraphicsEngine.cpp" />
+    <ClCompile Include="..\src\beasty\ActorFactory.cpp" />
+    <ClInclude Include="..\src\include\Actor.h" />
+    <ClInclude Include="..\src\include\ActorComponent.h" />
+    <ClInclude Include="..\src\include\ActorFactory.h" />
+    <ClInclude Include="..\src\include\ActorMisc.h" />
     <ClInclude Include="..\src\include\GameManager.h" />
     <ClInclude Include="..\src\include\GraphicsEngine.h" />
     <ClInclude Include="..\src\include\InputEngine.h" />
@@ -74,7 +81,9 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y $(TargetPath) ..\$(SolutiontDir)\samples\asteroider\lib
-xcopy ..\$(SolutiontDir)\src\include\* ..\$(SolutiontDir)\samples\asteroider\3rdParty\beasty\include /s /i /y</Command>
+xcopy ..\$(SolutiontDir)\src\include\* ..\$(SolutiontDir)\samples\asteroider\3rdParty\beasty\ /s /i /y
+xcopy ..\$(SolutiontDir)\3rdParty\* ..\$(SolutiontDir)\samples\asteroider\3rdParty\ /s /i /y
+xcopy ..\$(SolutiontDir)\lib\*.lib ..\$(SolutiontDir)\samples\asteroider\lib\ /s /i /y</Command>
     </PostBuildEvent>
     <Lib />
     <Lib>

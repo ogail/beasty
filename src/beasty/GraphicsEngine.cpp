@@ -1,5 +1,5 @@
 #include "GraphicsEngine.h"
-#include "SDKmisc.h"
+#include "DXUT\Optional\SDKmisc.h"
 #include "Misc.h"
 
 using namespace beasty;
@@ -20,25 +20,23 @@ XMFLOAT4 GraphicsEngine::m_vMeshColor( 0.7f, 0.7f, 0.7f, 1.0f );
 
 GraphicsEngine::GraphicsEngine()
 {
-
 }
 
 GraphicsEngine::~GraphicsEngine()
 {
-    
 }
 
-bool CALLBACK GraphicsEngine::modifyDeviceSettings(DXUTDeviceSettings* pDeviceSettings, void* pUserContext)
+bool CALLBACK GraphicsEngine::ModifyDeviceSettings(DXUTDeviceSettings* pDeviceSettings, void* pUserContext)
 {
     return true;
 }
 
-bool CALLBACK GraphicsEngine::onDeviceRemoved(void* pUserContext)
+bool CALLBACK GraphicsEngine::OnDeviceRemoved(void* pUserContext)
 {
     return true;
 }
 
-bool CALLBACK GraphicsEngine::isD3D11DeviceAcceptable(const CD3D11EnumAdapterInfo *AdapterInfo,
+bool CALLBACK GraphicsEngine::IsD3D11DeviceAcceptable(const CD3D11EnumAdapterInfo *AdapterInfo,
                                                       UINT Output,
                                                       const CD3D11EnumDeviceInfo *DeviceInfo,
                                                       DXGI_FORMAT BackBufferFormat, 
@@ -48,7 +46,7 @@ bool CALLBACK GraphicsEngine::isD3D11DeviceAcceptable(const CD3D11EnumAdapterInf
     return true;
 }
 
-HRESULT CALLBACK GraphicsEngine::onD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext)
+HRESULT CALLBACK GraphicsEngine::OnD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext)
 {
     HRESULT hr = S_OK;
 
@@ -226,7 +224,7 @@ HRESULT CALLBACK GraphicsEngine::onD3D11CreateDevice(ID3D11Device* pd3dDevice, c
     return S_OK;
 }
 
-HRESULT CALLBACK GraphicsEngine::onD3D11ResizedSwapChain(ID3D11Device* pd3dDevice, IDXGISwapChain* pSwapChain, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext)
+HRESULT CALLBACK GraphicsEngine::OnD3D11ResizedSwapChain(ID3D11Device* pd3dDevice, IDXGISwapChain* pSwapChain, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext)
 {
     // Setup the projection parameters
     float fAspect = static_cast<float>( pBackBufferSurfaceDesc->Width ) / static_cast<float>( pBackBufferSurfaceDesc->Height );
@@ -235,7 +233,7 @@ HRESULT CALLBACK GraphicsEngine::onD3D11ResizedSwapChain(ID3D11Device* pd3dDevic
     return S_OK;
 }
 
-void CALLBACK GraphicsEngine::onD3D11FrameRender(ID3D11Device* pd3dDevice, ID3D11DeviceContext* pd3dImmediateContext, double fTime, float fElapsedTime, void* pUserContext)
+void CALLBACK GraphicsEngine::OnD3D11FrameRender(ID3D11Device* pd3dDevice, ID3D11DeviceContext* pd3dImmediateContext, double fTime, float fElapsedTime, void* pUserContext)
 {
     //
     // Clear the back buffer
@@ -273,12 +271,12 @@ void CALLBACK GraphicsEngine::onD3D11FrameRender(ID3D11Device* pd3dDevice, ID3D1
     pd3dImmediateContext->DrawIndexed( 36, 0, 0 );
 }
 
-void CALLBACK GraphicsEngine::onD3D11ReleasingSwapChain(void* pUserContext)
+void CALLBACK GraphicsEngine::OnD3D11ReleasingSwapChain(void* pUserContext)
 {
 
 }
 
-void CALLBACK GraphicsEngine::onD3D11DestroyDevice(void* pUserContext)
+void CALLBACK GraphicsEngine::OnD3D11DestroyDevice(void* pUserContext)
 {
     SAFE_RELEASE( m_pVertexBuffer );
     SAFE_RELEASE( m_pIndexBuffer );
@@ -290,7 +288,7 @@ void CALLBACK GraphicsEngine::onD3D11DestroyDevice(void* pUserContext)
     SAFE_RELEASE( m_pSamplerLinear );
 }
 
-void CALLBACK GraphicsEngine::onFrameMove(double fTime, float fElapsedTime, void* pUserContext)
+void CALLBACK GraphicsEngine::OnFrameMove(double fTime, float fElapsedTime, void* pUserContext)
 {
     // Rotate cube around the origin
     m_World = XMMatrixRotationY( 60.0f * XMConvertToRadians((float)fTime) );

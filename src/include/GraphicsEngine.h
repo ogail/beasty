@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DXUT.h"
+#include "DXUT\Core\DXUT.h"
 
 namespace beasty
 {
@@ -11,28 +11,28 @@ namespace beasty
 
         ~GraphicsEngine();
         
-        static bool CALLBACK modifyDeviceSettings(DXUTDeviceSettings* pDeviceSettings, void* pUserContext);
+        static bool CALLBACK ModifyDeviceSettings(DXUTDeviceSettings* pDeviceSettings, void* pUserContext);
 
-        static bool CALLBACK onDeviceRemoved(void* pUserContext);
+        static bool CALLBACK OnDeviceRemoved(void* pUserContext);
 
-        static bool CALLBACK isD3D11DeviceAcceptable(const CD3D11EnumAdapterInfo *AdapterInfo,
+        static bool CALLBACK IsD3D11DeviceAcceptable(const CD3D11EnumAdapterInfo *AdapterInfo,
                                                                      UINT Output,
                                                                      const CD3D11EnumDeviceInfo *DeviceInfo,
                                                                      DXGI_FORMAT BackBufferFormat, 
                                                                      bool bWindowed,
                                                                      void* pUserContext);
 
-        static HRESULT CALLBACK onD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext);
+        static HRESULT CALLBACK OnD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext);
 
-        static HRESULT CALLBACK onD3D11ResizedSwapChain(ID3D11Device* pd3dDevice, IDXGISwapChain* pSwapChain, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext);
+        static HRESULT CALLBACK OnD3D11ResizedSwapChain(ID3D11Device* pd3dDevice, IDXGISwapChain* pSwapChain, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext);
 
-        static void CALLBACK onD3D11FrameRender(ID3D11Device* pd3dDevice, ID3D11DeviceContext* pd3dImmediateContext, double fTime, float fElapsedTime, void* pUserContext);
+        static void CALLBACK OnD3D11FrameRender(ID3D11Device* pd3dDevice, ID3D11DeviceContext* pd3dImmediateContext, double fTime, float fElapsedTime, void* pUserContext);
 
-        static void CALLBACK onD3D11ReleasingSwapChain(void* pUserContext);
+        static void CALLBACK OnD3D11ReleasingSwapChain(void* pUserContext);
 
-        static void CALLBACK onD3D11DestroyDevice(void* pUserContext);
+        static void CALLBACK OnD3D11DestroyDevice(void* pUserContext);
 
-        static void CALLBACK onFrameMove(double fTime, float fElapsedTime, void* pUserContext);
+        static void CALLBACK OnFrameMove(double fTime, float fElapsedTime, void* pUserContext);
 
     private:
         static ID3D11VertexShader* m_pVertexShader;

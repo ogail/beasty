@@ -2,7 +2,7 @@
 
 using namespace beasty;
 
-void CALLBACK InputEngine::onKeyboard(UINT nChar, bool bKeyDown, bool bAltDown, void* pUserContext)
+void CALLBACK InputEngine::OnKeyboard(UINT nChar, bool bKeyDown, bool bAltDown, void* pUserContext)
 {
 
 }

@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "asteroider", "..\samples\as
 		{0AE59BC9-EF62-4E20-989B-5EC37374DDFC} = {0AE59BC9-EF62-4E20-989B-5EC37374DDFC}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{64527FAF-6290-4982-B5A0-A17221BA02E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -50,5 +52,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A5E6130-1311-4B38-AE5B-1C0AA8A61028} = {64527FAF-6290-4982-B5A0-A17221BA02E5}
 	EndGlobalSection
 EndGlobal

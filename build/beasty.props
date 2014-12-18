@@ -8,15 +8,17 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>..\src\include;..\3rdParty\DXUT\Core;..\3rdParty\DXUT\Optional;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src\include;..\3rdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>DXUT.lib;DXUTOpt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>DXUT.lib;DXUTOpt.lib;lib_json.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalDependencies>DXUT.lib;DXUTOpt.lib;d3dcompiler.lib;usp10.lib;dxguid.lib;winmm.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>lib_json.lib;DXUT.lib;DXUTOpt.lib;d3dcompiler.lib;usp10.lib;dxguid.lib;winmm.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup />
