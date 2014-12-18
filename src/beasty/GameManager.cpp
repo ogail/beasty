@@ -4,20 +4,20 @@
 #include <string>
 
 using namespace beasty;
+using namespace std;
 
-GameManager::GameManager(std::wstring title) : m_title(title)
+GameManager::GameManager() :
+    m_hasModalDialog(0),
+    m_quitting(false)
+
 {
-    m_graphicsEngine = new GraphicsEngine();
 }
 
 GameManager::~GameManager()
 {
 }
 
-int GameManager::Init(HINSTANCE hInstance,
-                  HINSTANCE hPrevInstance,
-                  LPWSTR lpCmdLine,
-                  int nCmdShow)
+int GameManager::Init(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow, wstring title)
 {
     // Enable run-time memory check for debug builds.
 #ifdef _DEBUG
@@ -28,7 +28,7 @@ int GameManager::Init(HINSTANCE hInstance,
     // that is available on the system depending on which D3D callbacks are set below
 
     // Set general DXUT callbacks
-    DXUTSetCallbackFrameMove(GraphicsEngine::OnFrameMove);
+    DXUTSetCallbackFrameMove(GameManager::Update);
     DXUTSetCallbackKeyboard(InputEngine::OnKeyboard);
     DXUTSetCallbackMsgProc(GameManager::MsgProc);
     DXUTSetCallbackDeviceChanging(GraphicsEngine::ModifyDeviceSettings);
@@ -51,6 +51,8 @@ int GameManager::Init(HINSTANCE hInstance,
     DXUTCreateDevice( D3D_FEATURE_LEVEL_11_0, true, 800, 600 );
     DXUTMainLoop(); // Enter into the DXUT render loop
 
+    m_title = title;
+
     // Perform any application-level cleanup here
 
     return DXUTGetExitCode();
@@ -58,7 +60,23 @@ int GameManager::Init(HINSTANCE hInstance,
 
 void CALLBACK GameManager::Update(double fTime, float fElapsedTime, void* pUserContext)
 {
-    
+    GraphicsEngine::OnFrameMove(fTime, fElapsedTime, pUserContext);
+
+    if (GameManager::Instance().HasModalDialog())
+    {	
+        // don't update the game if a modal dialog is up.
+        return;
+    }
+
+    if (GameManager::Instance().Quitting())
+    {
+        PostMessage(GameManager::Instance().GetHwnd(), WM_CLOSE, 0, 0);
+    }
+
+    if (GameManager::Instance().Game())
+    {
+        GameManager::Instance().Game()->Update(float(fTime), fElapsedTime);
+    }
 }
 
 LRESULT CALLBACK GameManager::MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool* pbNoFurtherProcessing, void* pUserContext)

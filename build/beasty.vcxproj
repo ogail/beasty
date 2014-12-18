@@ -19,6 +19,7 @@
     <ClInclude Include="..\src\include\ActorComponent.h" />
     <ClInclude Include="..\src\include\ActorFactory.h" />
     <ClInclude Include="..\src\include\ActorMisc.h" />
+    <ClInclude Include="..\src\include\Game3D.h" />
     <ClInclude Include="..\src\include\GameManager.h" />
     <ClInclude Include="..\src\include\GraphicsEngine.h" />
     <ClInclude Include="..\src\include\InputEngine.h" />

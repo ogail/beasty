@@ -16,11 +16,11 @@ namespace beasty
         static bool CALLBACK OnDeviceRemoved(void* pUserContext);
 
         static bool CALLBACK IsD3D11DeviceAcceptable(const CD3D11EnumAdapterInfo *AdapterInfo,
-                                                                     UINT Output,
-                                                                     const CD3D11EnumDeviceInfo *DeviceInfo,
-                                                                     DXGI_FORMAT BackBufferFormat, 
-                                                                     bool bWindowed,
-                                                                     void* pUserContext);
+                                                     UINT Output,
+                                                     const CD3D11EnumDeviceInfo *DeviceInfo,
+                                                     DXGI_FORMAT BackBufferFormat, 
+                                                     bool bWindowed,
+                                                     void* pUserContext);
 
         static HRESULT CALLBACK OnD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext);
 
