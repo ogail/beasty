@@ -11,16 +11,33 @@ namespace beasty
         friend class ActorFactory;
 
     public:
-        ~Actor(void);
-        explicit Actor(ActorId id);
+        ~Actor() {}
+        Actor(ActorId id) { m_id = id; }
         bool Init(Json::Value data);
-        void PostInit(void);
-        void Destroy(void);
+        void PostInit();
+        void Destroy();
         void Update(int deltaMs);
-        ActorId GetId(void) const { return m_id; }
+        ActorId GetId() const { return m_id; }
         
         template <class ComponentType>
-        std::weak_ptr<ComponentType> GetComponent(ComponentId id);
+        std::weak_ptr<ComponentType> GetComponent(ComponentId id)
+        {
+            ActorComponents::iterator findIt = m_components.find(id);
+            if (findIt != m_components.end())
+            {
+                StrongActorComponentPtr pBase(findIt->second);
+                // cast to subclass version of the pointer
+                shared_ptr<ComponentType> pSub(
+                    std::tr1::static_pointer_cast<ComponentType>(pBase));
+                std::weak_ptr<ComponentType> pWeakSub(pSub); // convert strong pointer
+                                                        // to weak pointer
+                return pWeakSub; // return the weak pointer
+            }
+            else
+            {
+                return std::weak_ptr<ComponentType>();
+            }
+        }
 
     private:
         // This is called by the ActorFactory; no one else should be

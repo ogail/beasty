@@ -15,6 +15,7 @@ GameManager::GameManager() :
 
 GameManager::~GameManager()
 {
+    m_game->~Game3D();
 }
 
 int GameManager::Init(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow, wstring title)
@@ -62,20 +63,20 @@ void CALLBACK GameManager::Update(double fTime, float fElapsedTime, void* pUserC
 {
     GraphicsEngine::OnFrameMove(fTime, fElapsedTime, pUserContext);
 
-    if (GameManager::Instance().HasModalDialog())
+    if (GameManager::Instance()->HasModalDialog())
     {	
         // don't update the game if a modal dialog is up.
         return;
     }
 
-    if (GameManager::Instance().Quitting())
+    if (GameManager::Instance()->Quitting())
     {
-        PostMessage(GameManager::Instance().GetHwnd(), WM_CLOSE, 0, 0);
+        PostMessage(GameManager::Instance()->GetHwnd(), WM_CLOSE, 0, 0);
     }
 
-    if (GameManager::Instance().Game())
+    if (GameManager::Instance()->Game())
     {
-        GameManager::Instance().Game()->Update(float(fTime), fElapsedTime);
+        GameManager::Instance()->Game()->Update(float(fTime), fElapsedTime);
     }
 }
 

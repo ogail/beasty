@@ -11,6 +11,7 @@
       <AdditionalIncludeDirectories>..\src\include;..\3rdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>DXUT.lib;DXUTOpt.lib;lib_json.lib;%(AdditionalDependencies)</AdditionalDependencies>

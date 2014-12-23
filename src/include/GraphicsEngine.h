@@ -35,13 +35,7 @@ namespace beasty
         static void CALLBACK OnFrameMove(double fTime, float fElapsedTime, void* pUserContext);
 
     private:
-        static ID3D11VertexShader* m_pVertexShader;
-        static ID3D11PixelShader* m_pPixelShader;
         static ID3D11InputLayout* m_pVertexLayout;
-        static ID3D11Buffer* m_pVertexBuffer;
-        static ID3D11Buffer* m_pIndexBuffer;
-        static ID3D11Buffer* m_pCBChangesEveryFrame;
-        static ID3D11ShaderResourceView* m_pTextureRV;
         static ID3D11SamplerState* m_pSamplerLinear;
         static DirectX::XMMATRIX m_World;
         static DirectX::XMMATRIX m_View;

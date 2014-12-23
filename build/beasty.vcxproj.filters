@@ -75,6 +75,9 @@
     <ClInclude Include="..\src\include\Game3D.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\include\RenderComponent.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\beasty\InputEngine.cpp">
@@ -93,6 +96,12 @@
       <Filter>Source Files\core</Filter>
     </ClCompile>
     <ClCompile Include="..\src\beasty\ActorComponent.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\beasty\Game3D.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\beasty\RenderComponent.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>

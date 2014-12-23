@@ -2,6 +2,7 @@
 #include "Actor.h"
 #include "json/json.h"
 #include "ActorComponent.h"
+#include "RenderComponent.h"
 #include <fstream>
 #include <assert.h>
 
@@ -9,9 +10,18 @@ using namespace beasty;
 using namespace Json;
 using namespace std;
 
+StrongActorPtr ActorFactory::CreateActor()
+{
+    StrongActorPtr actor(new Actor(GetNextActorId()));
+    StrongActorComponentPtr component(new RenderComponent());
+    component->Init(Json::Value(true));
+    actor->AddComponent(component);
+
+    return actor;
+}
+
 StrongActorPtr ActorFactory::CreateActor(const char* actorResource)
 {
-    // Grab the root XML node
     Value root;
     Reader reader;
     ifstream actorStream(actorResource);

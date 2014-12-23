@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -13,8 +13,10 @@
   <ItemGroup>
     <ClCompile Include="..\src\beasty\Actor.cpp" />
     <ClCompile Include="..\src\beasty\ActorComponent.cpp" />
+    <ClCompile Include="..\src\beasty\Game3D.cpp" />
     <ClCompile Include="..\src\beasty\GraphicsEngine.cpp" />
     <ClCompile Include="..\src\beasty\ActorFactory.cpp" />
+    <ClCompile Include="..\src\beasty\RenderComponent.cpp" />
     <ClInclude Include="..\src\include\Actor.h" />
     <ClInclude Include="..\src\include\ActorComponent.h" />
     <ClInclude Include="..\src\include\ActorFactory.h" />
@@ -24,6 +26,7 @@
     <ClInclude Include="..\src\include\GraphicsEngine.h" />
     <ClInclude Include="..\src\include\InputEngine.h" />
     <ClInclude Include="..\src\include\Misc.h" />
+    <ClInclude Include="..\src\include\RenderComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\beasty\GameManager.cpp" />
@@ -42,13 +45,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>

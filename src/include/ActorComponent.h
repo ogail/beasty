@@ -11,11 +11,11 @@ namespace beasty
 
     public:
         ActorComponent() {}
-        ~ActorComponent(void) {}
+        ~ActorComponent() {}
         virtual bool Init(Json::Value data) = 0;
-        virtual void PostInit(void) { }
+        virtual void PostInit() { }
         virtual void Update(int deltaMs) { }
-        virtual ComponentId GetComponentId(void) const = 0;
+        virtual ComponentId GetId() const = 0;
 
     protected:
         StrongActorPtr m_pOwner;
